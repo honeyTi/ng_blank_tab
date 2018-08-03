@@ -1,3 +1,11 @@
-<p>
-  login works!
-</p>
+<div class="bg-content">
+  <div class="nav-bar">
+    <div class="log"></div>
+    <ul class="nav-list">
+      <li *ngFor="let item of menuList; let i = index" (click)='menuChose(item, i)' [ngClass]="{'chose-li': chose[i]}">{{item}}</li>
+    </ul>
+    <div class="login">
+      <div>登录</div>
+    </div>
+  </div>
+</div>

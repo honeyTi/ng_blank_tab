@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
+import { RouterGuardService } from '../guard/routerGuardService'
 
 const routes: Routes = [
         {
@@ -11,8 +12,14 @@ const routes: Routes = [
                         {
                                 path: 'login',
                                 component: LoginComponent,
+                                canActivate: [RouterGuardService],
                         },
-                        { path: '', redirectTo: 'login', pathMatch: 'full' },
+                        {
+                                path: '',
+                                redirectTo: 'login',
+                                pathMatch: 'full',
+                                canActivate: [RouterGuardService],
+                        },
                 ]
         }
 ];
